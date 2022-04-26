@@ -7,9 +7,7 @@ export const useHourlyQuery = (fsym: string[], tsym: string[]) => {
     ","
   )}&tsym=${tsym}&limit=10&aggregate=1&apikey=${apiKey}`;
 
-  return useQuery(
-    ["hourly", fsym, tsym],
-    () => fetch(url).then((res) => res.json()),
-    { enabled: false, retryOnMount: false }
+  return useQuery(["hourly", fsym, tsym], () =>
+    fetch(url).then((res) => res.json())
   );
 };
