@@ -1,31 +1,44 @@
 import { Box, Checkbox, Stack } from "@chakra-ui/react";
 
 interface SymbolSelectorInterface {
-	fsym: string[];
-	setFsym: (fsym: string[]) => void;
+	symList?: string[];
+	setSymList?: (symbols: string[]) => void;
+	symbol?: string;
+	setSymbol?: (symbol: string) => void;
 	hasMounted: boolean;
 }
 const supportedSymbols = ["BTC", "ETH", "XRP", "LTC", "BCH", "EOS"];
 
 export const SymbolSelector = ({
-	fsym,
-	setFsym,
+	symList,
+	setSymList,
+	symbol,
+	setSymbol,
 	hasMounted,
 }: SymbolSelectorInterface) => {
 	const toggleSymbol = (symbol: string) => {
-		if (fsym.includes(symbol)) {
-			fsym = fsym.filter((s) => s !== symbol);
+		if (symList) {
+			if (symList.includes(symbol)) {
+				symList = symList.filter((s) => s !== symbol);
+			} else {
+				symList.push(symbol);
+			}
+			setSymList([...symList]);
 		} else {
-			fsym.push(symbol);
+			setSymbol(symbol);
 		}
-		setFsym([...fsym]);
 	};
 
-	const isChecked = (symbol: string) => {
-		return fsym.includes(symbol);
+	const isChecked = (sym: string) => {
+		if (symList) {
+			return symList.includes(sym);
+		} else {
+			return symbol === sym;
+		}
 	};
 
 	if (!hasMounted) return null;
+
 	return (
 		<Box
 			border="2px"
