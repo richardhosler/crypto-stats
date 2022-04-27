@@ -5,12 +5,8 @@ import { useHourlyQuery } from "../hooks/useHourly";
 
 export default function Home() {
 	const [fsym, setFsym] = useState(["BTC"]);
-	const [tsym, setTsym] = useState(["USD"]);
-	const {
-		isLoading: queryIsLoading,
-		error: queryError,
-		data: queryData,
-	} = useHourlyQuery(fsym, tsym);
+	const [tsym, setTsym] = useState("USD");
+	const queryData = useHourlyQuery(fsym, tsym);
 
 	const [hasMounted, setHasMounted] = useState(false);
 	useEffect(() => {
@@ -18,7 +14,7 @@ export default function Home() {
 	}, []);
 
 	useEffect(() => {
-		queryData && console.log({ queryData });
+		queryData && console.log({ qd: queryData });
 	}, [queryData]);
 
 	return (
@@ -28,7 +24,11 @@ export default function Home() {
 				<meta name="description" content="Cryptocurrency stats page" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<SymbolSelector fsym={fsym} setFsym={setFsym} hasMounted={hasMounted} />
+			<SymbolSelector
+				symList={fsym}
+				setSymList={setFsym}
+				hasMounted={hasMounted}
+			/>
 		</div>
 	);
 }
