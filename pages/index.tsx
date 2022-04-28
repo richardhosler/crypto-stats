@@ -29,6 +29,11 @@ export default function Home() {
 				setSymList={setFsym}
 				hasMounted={hasMounted}
 			/>
+			<SymbolSelector
+				symbol={tsym}
+				setSymbol={setTsym}
+				hasMounted={hasMounted}
+			/>
 		</div>
 	);
 }

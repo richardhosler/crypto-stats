@@ -20,8 +20,10 @@ export const SymbolSelector = ({
 		if (symList) {
 			if (symList.includes(symbol)) {
 				symList = symList.filter((s) => s !== symbol);
-			} else {
+			} else if (symList.length < 5) {
 				symList.push(symbol);
+			} else {
+				//TODO: show error toast
 			}
 			setSymList([...symList]);
 		} else {
@@ -40,25 +42,24 @@ export const SymbolSelector = ({
 	if (!hasMounted) return null;
 
 	return (
-		<Box
+		<Stack
 			border="2px"
 			borderColor="slateblue"
 			width="32"
 			padding="4"
 			rounded="lg"
+			overflow={["scroll", "hidden"]}
 		>
-			<Stack>
-				{supportedSymbols.map((symbol, key) => (
-					<Checkbox
-						key={key}
-						name={symbol}
-						onChange={() => toggleSymbol(symbol)}
-						isChecked={isChecked(symbol)}
-					>
-						{symbol}
-					</Checkbox>
-				))}
-			</Stack>
-		</Box>
+			{supportedSymbols.map((symbol, key) => (
+				<Checkbox
+					key={key}
+					name={symbol}
+					onChange={() => toggleSymbol(symbol)}
+					isChecked={isChecked(symbol)}
+				>
+					{symbol}
+				</Checkbox>
+			))}
+		</Stack>
 	);
 };
