@@ -1,4 +1,4 @@
-import { Box, Checkbox, Stack } from "@chakra-ui/react";
+import { Checkbox, Stack } from "@chakra-ui/react";
 
 interface SymbolSelectorInterface {
 	symList?: string[];
@@ -6,6 +6,7 @@ interface SymbolSelectorInterface {
 	symbol?: string;
 	setSymbol?: (symbol: string) => void;
 	hasMounted: boolean;
+	sx?: any;
 }
 const supportedSymbols = ["BTC", "ETH", "XRP", "LTC", "BCH", "EOS"];
 
@@ -15,6 +16,7 @@ export const SymbolSelector = ({
 	symbol,
 	setSymbol,
 	hasMounted,
+	sx,
 }: SymbolSelectorInterface) => {
 	const toggleSymbol = (symbol: string) => {
 		if (symList) {
@@ -40,9 +42,9 @@ export const SymbolSelector = ({
 	};
 
 	if (!hasMounted) return null;
-
 	return (
 		<Stack
+			sx={sx}
 			border="2px"
 			borderColor="slateblue"
 			width="32"
