@@ -31,7 +31,7 @@ export default function Home() {
 	};
 
 	return (
-		<Flex>
+		<Flex position="relative" height="xl">
 			<Head>
 				<title>Crypto Stats</title>
 				<meta name="description" content="Cryptocurrency stats page" />

@@ -1,15 +1,14 @@
-interface Point {
-	x: number;
-	y: number;
-}
 export const formatHourlyQueryData = (data: any) => {
-	let now = new Date().getTime();
 	let formattedData = [];
 	data.forEach((d) => {
 		let points = [];
-
-		d.Data.Data.forEach((dd) => {
-			points.push({ x: dd.time - now, y: dd.close });
+		let st = BigInt(0);
+		d.Data.Data.forEach((dd, key) => {
+			key == 0 ? (st = BigInt(dd.time).valueOf()) : st;
+			points.push({
+				time: Number((BigInt(dd.time).valueOf() - st) / 3600n),
+				y: Number(Math.floor(dd.close)),
+			});
 		});
 		formattedData.push(points);
 	});

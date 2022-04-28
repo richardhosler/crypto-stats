@@ -8,7 +8,7 @@ interface SymbolSelectorInterface {
 	hasMounted: boolean;
 	sx?: any;
 }
-const supportedSymbols = ["BTC", "ETH", "XRP", "LTC", "BCH", "EOS"];
+const supportedSymbols = ["USD", "BTC", "ETH", "XRP", "LTC", "BCH", "EOS"];
 
 export const SymbolSelector = ({
 	symList,
