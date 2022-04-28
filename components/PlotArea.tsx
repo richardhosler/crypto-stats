@@ -1,12 +1,12 @@
-import { XYPlot, LineSeries } from "react-vis";
+import { VictoryBar, VictoryChart, VictoryLine } from "victory";
 
 export const PlotArea = (data: any) => {
-	let formattedData = data.Data.Data;
-	console.log(formattedData);
+	if (!data) return null;
 
 	return (
-		<XYPlot width={600} height={300}>
-			{/* <LineSeries data={formattedData} /> */}
-		</XYPlot>
+		<VictoryChart height={200}>
+			<VictoryBar data={data[0]} />
+		</VictoryChart>
 	);
 };
+export default PlotArea;
