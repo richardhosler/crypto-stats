@@ -21,9 +21,11 @@ export default function Home() {
 	useEffect(() => {
 		setHasMounted(true);
 	}, []);
-
+	const [formattedData, setFormattedData] = useState([]);
 	useEffect(() => {
-		// queryData && console.log(formatHourlyQueryData(queryData));
+		if (queryData) {
+			setFormattedData(formatHourlyQueryData(queryData));
+		}
 	}, [queryData]);
 
 	return (
@@ -37,12 +39,14 @@ export default function Home() {
 				symList={fsym}
 				setSymList={setFsym}
 				hasMounted={hasMounted}
+				supportedSymbols={["BTC", "ETH", "LTC", "XRP", "BCH"]}
 			/>
-			<PlotAreaDynamic data={formatHourlyQueryData(queryData)} />
+			<PlotAreaDynamic data={formattedData} />
 			<SymbolSelector
 				symbol={tsym}
 				setSymbol={setTsym}
 				hasMounted={hasMounted}
+				supportedSymbols={["USD", "EUR", "GBP"]}
 			/>
 		</Flex>
 	);

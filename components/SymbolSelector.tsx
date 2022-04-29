@@ -1,6 +1,7 @@
 import { Checkbox, Stack } from "@chakra-ui/react";
 
 interface SymbolSelectorInterface {
+	supportedSymbols: string[];
 	symList?: string[];
 	setSymList?: (symbols: string[]) => void;
 	symbol?: string;
@@ -8,9 +9,9 @@ interface SymbolSelectorInterface {
 	hasMounted: boolean;
 	sx?: any;
 }
-const supportedSymbols = ["USD", "BTC", "ETH", "XRP", "LTC", "BCH", "EOS"];
 
 export const SymbolSelector = ({
+	supportedSymbols,
 	symList,
 	setSymList,
 	symbol,
