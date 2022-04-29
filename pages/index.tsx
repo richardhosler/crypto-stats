@@ -4,50 +4,33 @@ import { SymbolSelector } from "../components/SymbolSelector";
 import { useHourlyQuery } from "../hooks/useHourly";
 import { formatHourlyQueryData } from "../utils/formatHourlyQueryData";
 import { Flex } from "@chakra-ui/react";
-import dynamic from "next/dynamic";
-const Plot = dynamic(() => import("../components/PlotArea"), {
-	ssr: false,
-});
-function PlotAreaDynamic({ data }) {
-	return <Plot {...data} />;
-}
+import PlotArea from "../components/PlotArea";
 
 export default function Home() {
-	const [fsym, setFsym] = useState(["BTC"]);
-	const [tsym, setTsym] = useState("USD");
-	const queryData = useHourlyQuery(fsym, tsym);
+  const [fsym, setFsym] = useState(["BTC"]);
+  const [tsym, setTsym] = useState("USD");
+  const queryData = useHourlyQuery(fsym, tsym);
 
-	const [hasMounted, setHasMounted] = useState(false);
-	useEffect(() => {
-		setHasMounted(true);
-	}, []);
-	const [formattedData, setFormattedData] = useState([]);
-	useEffect(() => {
-		if (queryData) {
-			setFormattedData(formatHourlyQueryData(queryData));
-		}
-	}, [queryData]);
+  // TODO: add package that has colours and icons https://github.com/ErikThiart/cryptocurrency-icons
 
-	return (
-		<Flex position="relative" height="xl">
-			<Head>
-				<title>Crypto Stats</title>
-				<meta name="description" content="Cryptocurrency stats page" />
-				<link rel="icon" href="/favicon.ico" />
-			</Head>
-			<SymbolSelector
-				symList={fsym}
-				setSymList={setFsym}
-				hasMounted={hasMounted}
-				supportedSymbols={["BTC", "ETH", "LTC", "XRP", "BCH"]}
-			/>
-			<PlotAreaDynamic data={formattedData} />
-			<SymbolSelector
-				symbol={tsym}
-				setSymbol={setTsym}
-				hasMounted={hasMounted}
-				supportedSymbols={["USD", "EUR", "GBP"]}
-			/>
-		</Flex>
-	);
+  return (
+    <Flex position="relative" height="xl">
+      <Head>
+        <title>Crypto Stats</title>
+        <meta name="description" content="Cryptocurrency stats page" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+      <SymbolSelector
+        symList={fsym}
+        setSymList={setFsym}
+        supportedSymbols={["BTC", "ETH", "LTC", "XRP", "BCH"]}
+      />
+      <PlotArea data={queryData} />
+      <SymbolSelector
+        symbol={tsym}
+        setSymbol={setTsym}
+        supportedSymbols={["USD", "EUR", "GBP"]}
+      />
+    </Flex>
+  );
 }
