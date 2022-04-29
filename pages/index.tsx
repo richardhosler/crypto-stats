@@ -8,8 +8,8 @@ import dynamic from "next/dynamic";
 const Plot = dynamic(() => import("../components/PlotArea"), {
 	ssr: false,
 });
-function PlotAreaDynamic(data) {
-	return <Plot data={data} />;
+function PlotAreaDynamic({ data }) {
+	return <Plot {...data} />;
 }
 
 export default function Home() {
@@ -23,12 +23,8 @@ export default function Home() {
 	}, []);
 
 	useEffect(() => {
-		queryData && console.log(formatHourlyQueryData(queryData));
+		// queryData && console.log(formatHourlyQueryData(queryData));
 	}, [queryData]);
-
-	const PlotAreaProps = {
-		data: formatHourlyQueryData(queryData),
-	};
 
 	return (
 		<Flex position="relative" height="xl">

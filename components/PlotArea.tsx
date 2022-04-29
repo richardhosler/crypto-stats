@@ -1,19 +1,13 @@
-import {
-	VictoryArea,
-	VictoryAxis,
-	VictoryBar,
-	VictoryChart,
-	VictoryLine,
-	VictoryTheme,
-} from "victory";
+import { VictoryAxis, VictoryChart, VictoryLine } from "victory";
 
 const PlotArea = (data) => {
 	if (!data) return null;
+	console.log(data);
 
 	return (
 		<VictoryChart
-			domain={{ x: [-0.5, 5.5], y: [39000, 40000] }}
-			domainPadding={{ x: 20, y: [0, 20] }}
+			domain={{ x: [-0.5, 12.5] }}
+			domainPadding={{ y: [50, 50] }}
 			animate={{ duration: 500 }}
 		>
 			<VictoryAxis
