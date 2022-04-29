@@ -8,7 +8,7 @@ import dynamic from "next/dynamic";
 const Plot = dynamic(() => import("../components/PlotArea"), {
 	ssr: false,
 });
-function PlotAreaDynamic({ data }) {
+function PlotAreaDynamic(data) {
 	return <Plot data={data} />;
 }
 
