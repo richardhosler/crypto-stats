@@ -9,7 +9,7 @@ export const useHourlyQuery = (fsym: string[], tsym: string) => {
 
 	fsym.map((symbol) => {
 		queryOptions.push({
-			queryKey: ["hourly", symbol],
+			queryKey: ["hourly", symbol, tsym],
 			queryFn: (qopt): Promise<any> => {
 				const url = `https://min-api.cryptocompare.com/data/v2/histohour?tryConversion=true&fsym=${qopt.queryKey[1]}&tsym=${tsym}&limit=24&aggregate=1&apikey=${process.env.NEXT_PUBLIC_CRYPTO_COMPARE_API_KEY}`;
 				return fetch(url).then((response) => response.json());
