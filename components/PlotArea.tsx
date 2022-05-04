@@ -12,7 +12,11 @@ const PlotArea = (data) => {
 	console.log({ chartData });
 
 	return (
-		<VictoryChart domainPadding={{ y: [20, 20] }} animate={{ duration: 500 }}>
+		<VictoryChart
+			width={700}
+			domainPadding={{ y: [20, 20] }}
+			animate={{ duration: 500 }}
+		>
 			<VictoryAxis
 				label="Time"
 				style={{
