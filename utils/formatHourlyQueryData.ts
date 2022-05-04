@@ -1,7 +1,7 @@
 export const formatHourlyQueryData = (data: any) => {
 	let formattedData: { x: number; y: number }[][] = [];
-	data.forEach((d) => {
-		let points = [];
+	data.map((d) => {
+		let points: { x: number; y: number }[] = [];
 		let st = BigInt(new Date().getTime());
 		d.Data.Data.map((dd, key) => {
 			key == 0 ? (st = BigInt(dd.time)) : st;
