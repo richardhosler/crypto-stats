@@ -1,4 +1,5 @@
-import { Checkbox, Stack } from "@chakra-ui/react";
+import { Checkbox, Flex, Image, Spacer, Stack } from "@chakra-ui/react";
+import { getSymbolIcon } from "../utils/getSymbolIcon";
 
 interface SymbolSelectorInterface {
 	supportedSymbols: string[];
@@ -6,7 +7,7 @@ interface SymbolSelectorInterface {
 	setSymList?: (symbols: string[]) => void;
 	symbol?: string;
 	setSymbol?: (symbol: string) => void;
-	sx?: any;
+	props?: any;
 }
 
 export const SymbolSelector = ({
@@ -15,7 +16,7 @@ export const SymbolSelector = ({
 	setSymList,
 	symbol,
 	setSymbol,
-	sx,
+	props,
 }: SymbolSelectorInterface) => {
 	const toggleSymbol = (symbol: string) => {
 		if (symList) {
@@ -42,24 +43,32 @@ export const SymbolSelector = ({
 
 	return (
 		<Stack
-			sx={sx}
 			border="2px"
 			borderColor="slateblue"
 			width="32"
 			padding="4"
 			rounded="lg"
-			overflow={["scroll", "hidden"]}
+			overflow={"auto"}
+			{...props}
 		>
 			{supportedSymbols &&
 				supportedSymbols.map((symbol, key) => (
-					<Checkbox
-						key={key}
-						name={symbol}
-						onChange={() => toggleSymbol(symbol)}
-						isChecked={isChecked(symbol)}
-					>
-						{symbol}
-					</Checkbox>
+					<Flex key={key}>
+						<Checkbox
+							name={symbol}
+							onChange={() => toggleSymbol(symbol)}
+							isChecked={isChecked(symbol)}
+						>
+							{symbol}
+						</Checkbox>
+						<Spacer />
+						<Image
+							width={"20px"}
+							height={"20px"}
+							src={getSymbolIcon(symbol)}
+							alt={`icon for ${symbol}`}
+						/>
+					</Flex>
 				))}
 		</Stack>
 	);

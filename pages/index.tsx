@@ -23,22 +23,39 @@ export default function Home() {
 			<Header />
 			<Flex position="relative" height="xl">
 				<SymbolSelector
+					props={{ width: "200px" }}
 					symList={fsym}
 					setSymList={setFsym}
 					supportedSymbols={[
 						"BTC",
+						"WBTC",
 						"ETH",
+						"STETH",
 						"BNB",
-						"USDC",
+						"BCH",
+						"XMR",
+						"EGLD",
+						"LTC",
 						"SOL",
 						"LUNA",
-						"LTC",
+						"AVAX",
+						"CETH",
+						"FTT",
+						"AXS",
+						"ETC",
+						"OKB",
+						"ATOM",
+						"APE",
+						"DOT",
+						"FIL",
+						"ICP",
+						"NEAR",
 						"XRP",
-						"BCH",
 					]}
 				/>
 				<PlotArea data={hourlyData} />
 				<SymbolSelector
+					props={{ width: "200px" }}
 					symbol={tsym}
 					setSymbol={setTsym}
 					supportedSymbols={["USD", "EUR", "GBP", "USDT"]}
