@@ -1,17 +1,23 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Head from "next/head";
 import { SymbolSelector } from "../components/SymbolSelector";
 import { useHourlyQuery } from "../hooks/useHourlyQuery";
 import { Flex } from "@chakra-ui/react";
 import PlotArea from "../components/PlotArea";
 import { Header } from "../components/Header";
+import { getSymbolColours } from "../utils/getSymbolColour";
 
 export default function Home() {
 	const [fsym, setFsym] = useState(["BTC"]);
 	const [tsym, setTsym] = useState("USD");
 	const hourlyData = useHourlyQuery(fsym, tsym);
+	const [coinColours, setCoinColours] = useState([]);
 
 	// TODO: add package that has colours and icons https://github.com/ErikThiart/cryptocurrency-icons
+	useEffect(() => {
+		setCoinColours(getSymbolColours(fsym));
+		console.log({ coinColours });
+	}, [fsym, coinColours]);
 
 	return (
 		<>
@@ -53,7 +59,7 @@ export default function Home() {
 						"XRP",
 					]}
 				/>
-				<PlotArea data={hourlyData} />
+				<PlotArea data={hourlyData} colours={coinColours} />
 				<SymbolSelector
 					props={{ width: "200px" }}
 					symbol={tsym}
