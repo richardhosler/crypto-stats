@@ -11,13 +11,11 @@ export default function Home() {
 	const [fsym, setFsym] = useState(["BTC"]);
 	const [tsym, setTsym] = useState("USD");
 	const hourlyData = useHourlyQuery(fsym, tsym);
-	const [coinColours, setCoinColours] = useState([]);
+	const [coinColours, setCoinColours] = useState(["F7931A"]);
 
-	// TODO: add package that has colours and icons https://github.com/ErikThiart/cryptocurrency-icons
 	useEffect(() => {
 		setCoinColours(getSymbolColours(fsym));
-		console.log({ coinColours });
-	}, [fsym, coinColours]);
+	}, [fsym, setFsym]);
 
 	return (
 		<>

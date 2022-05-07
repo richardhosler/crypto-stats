@@ -1,5 +1,5 @@
-import { Checkbox, Flex, Image, Spacer, Stack } from "@chakra-ui/react";
-import { getSymbolIcon } from "../utils/getSymbolIcon";
+import { Checkbox, Flex, Icon, Image, Spacer, Stack } from "@chakra-ui/react";
+import { getPngIcon } from "../utils/getSymbolIcon";
 
 interface SymbolSelectorInterface {
 	supportedSymbols: string[];
@@ -65,7 +65,7 @@ export const SymbolSelector = ({
 						<Image
 							width={"20px"}
 							height={"20px"}
-							src={getSymbolIcon(symbol)}
+							src={getPngIcon(symbol)}
 							alt={`icon for ${symbol}`}
 						/>
 					</Flex>

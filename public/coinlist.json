@@ -70875,36 +70875,42 @@
 		"name": "XRP",
 		"symbol": "XRP",
 		"slug": "xrp",
-		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/xrp.png"
+		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/xrp.png",
+		"colour": "#23292f"
 	},
 	{
 		"name": "Cardano",
 		"symbol": "ADA",
 		"slug": "cardano",
-		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/cardano.png"
+		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/cardano.png",
+		"colour": "#47525e"
 	},
 	{
 		"name": "Binance Coin",
 		"symbol": "BNB",
 		"slug": "binance-coin",
-		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/binance-coin.png"
+		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/binance-coin.png",
+		"colour": "#f2ba2f"
 	},
 	{
 		"name": "Tether",
 		"symbol": "USDT",
 		"slug": "tether",
-		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/tether.png"
+		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/tether.png",
+		"colour": "#25a07a"
 	},
 	{
 		"name": "Ethereum",
 		"symbol": "ETH",
 		"slug": "ethereum",
-		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/ethereum.png"
+		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/ethereum.png",
+		"colour": "#617de9"
 	},
 	{
 		"name": "Bitcoin",
 		"symbol": "BTC",
 		"slug": "bitcoin",
-		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/bitcoin.png"
+		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/bitcoin.png",
+		"colour": "#F7931A"
 	}
 ]

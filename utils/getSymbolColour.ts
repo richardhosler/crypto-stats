@@ -1,10 +1,9 @@
-import { getSymbolIcon } from "./getSymbolIcon";
-const ColorThief = require("colorthief");
+import coins from "../public/coinlist.json";
 
-export const getSymbolColour = async (symbol: string) => {
-	const iconUrl = getSymbolIcon(symbol);
-	const colour = await ColorThief.getColor(iconUrl).then((colors) => colors);
-	return colour;
+export const getSymbolColour = (symbol: string) => {
+	const coin = coins.find((coin) => coin.symbol === symbol);
+	if (coin.colour) return coin.colour;
+	else return "#000";
 };
 
 export const getSymbolColours = (symbols: string[]) => {

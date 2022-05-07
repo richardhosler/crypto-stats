@@ -1,6 +1,7 @@
 import { useMemo } from "react";
 import { VictoryAxis, VictoryChart, VictoryLine } from "victory";
 import { formatHourlyQueryData } from "../utils/formatHourlyQueryData";
+import { getSymbolColour } from "../utils/getSymbolColour";
 interface PlotAreaInterface {
 	data: any;
 	colours: string[];
@@ -39,7 +40,7 @@ const PlotArea = ({ data, colours }: PlotAreaInterface) => {
 					<VictoryLine
 						key={key}
 						style={{
-							data: { stroke: "#c43a31" },
+							data: { stroke: `${colours[key]}` },
 							parent: { border: "1px solid #ccc" },
 						}}
 						data={series}
