@@ -9933,7 +9933,8 @@
 		"name": "StakeHound Staked Ether",
 		"symbol": "STETH",
 		"slug": "stakehound-staked-ether",
-		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/stakehound-staked-ether.png"
+		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/stakehound-staked-ether.png",
+		"color": "#00a3ff"
 	},
 	{
 		"name": "Ether Cards",
@@ -70599,7 +70600,8 @@
 		"name": "Elrond",
 		"symbol": "EGLD",
 		"slug": "elrond-egld",
-		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/elrond-egld.png"
+		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/elrond-egld.png",
+		"colour": "#0c0229"
 	},
 	{
 		"name": "Waves",
@@ -70623,7 +70625,8 @@
 		"name": "Avalanche",
 		"symbol": "AVAX",
 		"slug": "avalanche",
-		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/avalanche.png"
+		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/avalanche.png",
+		"colour": "#dc3e3f"
 	},
 	{
 		"name": "IOTA",
@@ -70737,7 +70740,8 @@
 		"name": "Terra",
 		"symbol": "LUNA",
 		"slug": "terra-luna",
-		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/terra-luna.png"
+		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/terra-luna.png",
+		"colour": "#e68109"
 	},
 	{
 		"name": "EOS",
@@ -70749,13 +70753,15 @@
 		"name": "Aave",
 		"symbol": "AAVE",
 		"slug": "aave",
-		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/aave.png"
+		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/aave.png",
+		"colour": "#2ebac6"
 	},
 	{
 		"name": "Monero",
 		"symbol": "XMR",
 		"slug": "monero",
-		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/monero.png"
+		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/monero.png",
+		"colour": "#ff6600"
 	},
 	{
 		"name": "TRON",
@@ -70815,37 +70821,43 @@
 		"name": "Wrapped Bitcoin",
 		"symbol": "WBTC",
 		"slug": "wrapped-bitcoin",
-		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/wrapped-bitcoin.png"
+		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/wrapped-bitcoin.png",
+		"colour": "#201a2d"
 	},
 	{
 		"name": "Chainlink",
 		"symbol": "LINK",
 		"slug": "chainlink",
-		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/chainlink.png"
+		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/chainlink.png",
+		"colour": "#2a5ada"
 	},
 	{
 		"name": "Solana",
 		"symbol": "SOL",
 		"slug": "solana",
-		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/solana.png"
+		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/solana.png",
+		"colour": "#66f9a1"
 	},
 	{
 		"name": "Litecoin",
 		"symbol": "LTC",
 		"slug": "litecoin",
-		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/litecoin.png"
+		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/litecoin.png",
+		"colour": "#bfbbbb"
 	},
 	{
 		"name": "Bitcoin Cash",
 		"symbol": "BCH",
 		"slug": "bitcoin-cash",
-		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/bitcoin-cash.png"
+		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/bitcoin-cash.png",
+		"colour": "#8dc351"
 	},
 	{
 		"name": "Uniswap",
 		"symbol": "UNI",
 		"slug": "uniswap",
-		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/uniswap.png"
+		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/uniswap.png",
+		"colour": "#ff007a"
 	},
 	{
 		"name": "Binance USD",
@@ -70857,19 +70869,22 @@
 		"name": "Polkadot",
 		"symbol": "DOT",
 		"slug": "polkadot-new",
-		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/polkadot-new.png"
+		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/polkadot-new.png",
+		"colour": "#e6007a"
 	},
 	{
 		"name": "Dogecoin",
 		"symbol": "DOGE",
 		"slug": "dogecoin",
-		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/dogecoin.png"
+		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/dogecoin.png",
+		"colour": "#c3a634"
 	},
 	{
 		"name": "USD Coin",
 		"symbol": "USDC",
 		"slug": "usd-coin",
-		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/usd-coin.png"
+		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/usd-coin.png",
+		"colour": "#3c73c4"
 	},
 	{
 		"name": "XRP",
