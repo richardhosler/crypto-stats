@@ -1,22 +1,22 @@
 import { useMemo } from "react";
 import { VictoryAxis, VictoryChart, VictoryLine } from "victory";
 import { formatHourlyQueryData } from "../utils/formatHourlyQueryData";
-
-const PlotArea = (data) => {
+import { getSymbolColour } from "../utils/getSymbolColour";
+interface PlotAreaInterface {
+	data: any;
+	colours: string[];
+}
+const PlotArea = ({ data, colours }: PlotAreaInterface) => {
 	const chartData = useMemo(() => {
 		if (!data) return [];
 
-		return formatHourlyQueryData(data.data);
+		return formatHourlyQueryData(data);
 	}, [data]);
 
 	console.log({ chartData });
 
 	return (
-		<VictoryChart
-			width={700}
-			domainPadding={{ y: [20, 20] }}
-			animate={{ duration: 500 }}
-		>
+		<VictoryChart width={700} domainPadding={{ y: [20, 20] }}>
 			<VictoryAxis
 				label="Time"
 				style={{
@@ -40,10 +40,11 @@ const PlotArea = (data) => {
 					<VictoryLine
 						key={key}
 						style={{
-							data: { stroke: "#c43a31" },
+							data: { stroke: `${colours[key]}` },
 							parent: { border: "1px solid #ccc" },
 						}}
 						data={series}
+						animate={{ duration: 500 }}
 					/>
 				))}
 		</VictoryChart>
