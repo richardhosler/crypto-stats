@@ -54,6 +54,7 @@ export default function Home() {
 						"FIL",
 						"ICP",
 						"NEAR",
+						"UNI",
 						"XRP",
 					]}
 				/>

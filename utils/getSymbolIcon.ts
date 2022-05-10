@@ -1,10 +1,11 @@
 import coins from "../public/coinlist.json";
 
-export const getPngIcon = (symbol: string) => {
+const getPngIcon = (symbol: string) => {
 	const coin = coins.find((coin) => coin.symbol === symbol);
-	return coin ? coin.img_url : getSvgIcon(symbol);
+	return coin.img_url;
 };
 
-const getSvgIcon = (symbol: string) => {
-	return `/icons/${symbol.toLowerCase()}.svg`;
+export const getSvgIcon = (symbol: string) => {
+	const coin = coins.find((coin) => coin.symbol === symbol);
+	return coin.svg ? coin.svg : getPngIcon(symbol);
 };
