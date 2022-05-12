@@ -7,5 +7,5 @@ const getPngIcon = (symbol: string) => {
 
 export const getSvgIcon = (symbol: string) => {
 	const coin = coins.find((coin) => coin.symbol === symbol);
-	return coin.svg ? coin.svg : getPngIcon(symbol);
+	if (coin) return coin.svg != "" ? coin.svg : getPngIcon(symbol);
 };
