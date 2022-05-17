@@ -238,5 +238,20 @@
 		"img_url": "https://raw.githubusercontent.com/ErikThiart/cryptocurrency-icons/master/32/xrp.png",
 		"colour": "#23292f",
 		"svg": "/icons/xrp.svg"
+	},
+	{
+		"name": "US Dollar",
+		"symbol": "USD",
+		"svg": "/icons/usd.svg"
+	},
+	{
+		"name": "Euro",
+		"symbol": "EUR",
+		"svg": "/icons/eur.svg"
+	},
+	{
+		"name": "Pound Sterling",
+		"symbol": "GBP",
+		"svg": "/icons/gbp.svg"
 	}
 ]

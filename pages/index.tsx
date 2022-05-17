@@ -3,7 +3,7 @@ import Head from "next/head";
 import { SymbolSelector } from "../components/SymbolSelector";
 import { useHourlyQuery } from "../hooks/useHourlyQuery";
 import { Flex } from "@chakra-ui/react";
-import PlotArea from "../components/PlotArea";
+import PlotArea, { PlotType } from "../components/PlotArea";
 import { Header } from "../components/Header";
 import { getSymbolColours } from "../utils/getSymbolColour";
 
@@ -12,6 +12,7 @@ export default function Home() {
 	const [tsym, setTsym] = useState("USD");
 	const hourlyData = useHourlyQuery(fsym, tsym);
 	const [coinColours, setCoinColours] = useState(["F7931A"]);
+	const [plotType, setPlotType] = useState(PlotType.Line);
 
 	useEffect(() => {
 		setCoinColours(getSymbolColours(fsym));
@@ -57,7 +58,7 @@ export default function Home() {
 						"XRP",
 					]}
 				/>
-				<PlotArea data={hourlyData} colours={coinColours} />
+				<PlotArea data={hourlyData} colours={coinColours} type={plotType} />
 				<SymbolSelector
 					props={{ width: "200px" }}
 					symbol={tsym}

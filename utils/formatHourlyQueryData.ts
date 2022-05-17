@@ -1,16 +1,26 @@
+interface FormattedDataInterface {
+	time: number;
+	open: number;
+	close: number;
+	high: number;
+	low: number;
+}
 export const formatHourlyQueryData = (data: any) => {
-	let formattedData: { x: number; y: number }[][] = [];
+	let formattedData: FormattedDataInterface[][] = [];
 	data.map((d) => {
-		let points: { x: number; y: number }[] = [];
+		let series: FormattedDataInterface[] = [];
 		let st = BigInt(new Date().getTime());
 		d.Data.Data.map((dd, key) => {
 			key == 0 ? (st = BigInt(dd.time)) : st;
-			points.push({
-				x: Number((BigInt(dd.time) - st) / 3600n),
-				y: dd.close,
+			series.push({
+				time: Number((BigInt(dd.time) - st) / 3600n) - 24,
+				open: dd.open,
+				close: dd.close,
+				high: dd.high,
+				low: dd.low,
 			});
 		});
-		formattedData.push(points);
+		formattedData.push(series);
 	});
 	return formattedData;
 };
