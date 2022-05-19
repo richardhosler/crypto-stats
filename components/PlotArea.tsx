@@ -35,7 +35,7 @@ const PlotArea = ({
 		<VictoryChart
 			width={700}
 			domainPadding={{ y: [20, 20] }}
-			containerComponent={<VictoryVoronoiContainer />}
+			containerComponent={<VictoryVoronoiContainer voronoiPadding={1} />}
 		>
 			<VictoryAxis
 				label="Hours"
@@ -70,8 +70,9 @@ const PlotArea = ({
 						data={series}
 						x="time"
 						y="close"
-						animate={{ duration: 500 }}
-						labels={({ datum }) => datum.close}
+						labels={({ datum }) =>
+							`open: ${datum.open}\nhigh: ${datum.high}\nlow: ${datum.low}\nclose: ${datum.close}`
+						}
 						labelComponent={<VictoryTooltip />}
 					/>
 				))}
@@ -82,8 +83,10 @@ const PlotArea = ({
 						key={key}
 						data={series}
 						x="time"
+						candleRatio={0.4}
+						candleColors={{ positive: "#5f995b", negative: "#c43a31" }}
 						labels={({ datum }) =>
-							`o:${datum.open}\nh:${datum.high}\nl:${datum.low}\nc:${datum.close}`
+							`open: ${datum.open}\nhigh: ${datum.high}\nlow: ${datum.low}\nclose: ${datum.close}`
 						}
 						labelComponent={<VictoryTooltip />}
 					/>

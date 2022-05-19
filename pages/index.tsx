@@ -25,7 +25,7 @@ export default function Home() {
 				<meta name="description" content="Cryptocurrency stats page" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<Header />
+			<Header setPlot={setPlotType} />
 			<Flex position="relative" height="xl">
 				<SymbolSelector
 					props={{ width: "200px" }}
