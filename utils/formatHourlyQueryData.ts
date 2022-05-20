@@ -1,11 +1,13 @@
-interface FormattedDataInterface {
+export interface FormattedDataInterface {
 	time: number;
 	open: number;
 	close: number;
 	high: number;
 	low: number;
 }
-export const formatHourlyQueryData = (data: any) => {
+export const formatHourlyQueryData = (
+	data: any
+): FormattedDataInterface[][] => {
 	let formattedData: FormattedDataInterface[][] = [];
 	data.map((d) => {
 		let series: FormattedDataInterface[] = [];

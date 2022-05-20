@@ -3,11 +3,13 @@ import {
 	VictoryAxis,
 	VictoryCandlestick,
 	VictoryChart,
+	VictoryLabel,
 	VictoryLine,
 	VictoryTooltip,
 	VictoryVoronoiContainer,
 } from "victory";
 import { formatHourlyQueryData } from "../utils/formatHourlyQueryData";
+import { StatTooltip } from "./StatTooltip";
 interface PlotAreaInterface {
 	data: any;
 	colours: string[];
@@ -35,6 +37,7 @@ const PlotArea = ({
 		<VictoryChart
 			width={700}
 			domainPadding={{ y: [20, 20] }}
+			scale={{ x: "time", y: "linear" }}
 			containerComponent={<VictoryVoronoiContainer voronoiPadding={1} />}
 		>
 			<VictoryAxis
@@ -73,7 +76,7 @@ const PlotArea = ({
 						labels={({ datum }) =>
 							`open: ${datum.open}\nhigh: ${datum.high}\nlow: ${datum.low}\nclose: ${datum.close}`
 						}
-						labelComponent={<VictoryTooltip />}
+						labelComponent={<VictoryTooltip cornerRadius={2} />}
 					/>
 				))}
 			{type === PlotType.Candle &&
@@ -88,7 +91,7 @@ const PlotArea = ({
 						labels={({ datum }) =>
 							`open: ${datum.open}\nhigh: ${datum.high}\nlow: ${datum.low}\nclose: ${datum.close}`
 						}
-						labelComponent={<VictoryTooltip />}
+						labelComponent={<StatTooltip data={series[0]} />}
 					/>
 				))}
 		</VictoryChart>
