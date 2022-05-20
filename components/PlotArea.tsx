@@ -76,7 +76,12 @@ const PlotArea = ({
 						labels={({ datum }) =>
 							`open: ${datum.open}\nhigh: ${datum.high}\nlow: ${datum.low}\nclose: ${datum.close}`
 						}
-						labelComponent={<VictoryTooltip cornerRadius={2} />}
+						labelComponent={
+							<VictoryTooltip
+								cornerRadius={2}
+								labelComponent={<StatTooltip data={series} />}
+							/>
+						}
 					/>
 				))}
 			{type === PlotType.Candle &&
@@ -91,7 +96,7 @@ const PlotArea = ({
 						labels={({ datum }) =>
 							`open: ${datum.open}\nhigh: ${datum.high}\nlow: ${datum.low}\nclose: ${datum.close}`
 						}
-						labelComponent={<StatTooltip data={series[0]} />}
+						labelComponent={<StatTooltip data={series} />}
 					/>
 				))}
 		</VictoryChart>
