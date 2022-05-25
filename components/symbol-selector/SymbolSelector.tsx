@@ -1,76 +1,68 @@
 import { Checkbox, Flex, Image, Spacer, Stack } from "@chakra-ui/react";
+import { CSSProperties } from "react";
 import { getSvgIcon } from "../../utils/getSymbolIcon";
 
 interface SymbolSelectorInterface {
-  props?: any;
-  setSymbol?: (symbol: string) => void;
-  setSymList?: (symbols: string[]) => void;
-  supportedSymbols: string[];
-  symbol?: string;
-  symList?: string[];
+	setSymbol?: (symbol: string) => void;
+	setSymbolList?: (symbols: string[]) => void;
+	supportedSymbols: string[];
+	symbol?: string;
+	symbolList?: string[];
+	style?: CSSProperties;
 }
 
 export const SymbolSelector = ({
-  props,
-  setSymbol,
-  setSymList,
-  supportedSymbols,
-  symbol,
-  symList: symbolList,
+	setSymbol,
+	setSymbolList,
+	supportedSymbols,
+	symbol,
+	symbolList,
+	style,
 }: SymbolSelectorInterface) => {
-  const toggleSymbol = (symbol: string): void => {
-    if (symbolList) {
-      if (symbolList.includes(symbol)) {
-        symbolList = symbolList.filter(
-          (filterSymbol) => filterSymbol !== symbol
-        );
-      } else if (symbolList.length < 5) {
-        symbolList.push(symbol);
-      } else {
-        //TODO: show error toast
-      }
-      setSymList([...symbolList]);
-    } else {
-      setSymbol(symbol);
-    }
-  };
+	const toggleSymbol = (symbol: string): void => {
+		if (symbolList) {
+			if (symbolList.includes(symbol)) {
+				symbolList = symbolList.filter(
+					(filterSymbol) => filterSymbol !== symbol
+				);
+			} else if (symbolList.length < 5) {
+				symbolList.push(symbol);
+			} else {
+				//TODO: show error toast
+			}
+			setSymbolList([...symbolList]);
+		} else {
+			setSymbol(symbol);
+		}
+	};
 
-  const isChecked = (symbol: string): boolean => {
-    if (symbolList) {
-      return symbolList.includes(symbol);
-    }
+	const isChecked = (sym: string): boolean => {
+		if (symbolList) {
+			return symbolList.includes(symbol);
+		}
+		return symbol === sym;
+	};
 
-    return symbol === symbol;
-  };
-
-  return (
-    <Stack
-      border="2px"
-      borderColor="slateblue"
-      overflow="auto"
-      padding="4"
-      rounded="lg"
-      width="32"
-      {...props} // TODO: Remove props in favour of direct props
-    >
-      {supportedSymbols?.map((symbol, key) => (
-        <Flex key={key}>
-          <Checkbox
-            name={symbol}
-            onChange={() => toggleSymbol(symbol)}
-            isChecked={isChecked(symbol)}
-          >
-            {symbol}
-          </Checkbox>
-          <Spacer />
-          <Image
-            width="20px"
-            height="20px"
-            src={getSvgIcon(symbol)}
-            alt={`icon for ${symbol}`}
-          />
-        </Flex>
-      ))}
-    </Stack>
-  );
+	return (
+		<Stack overflow="auto" padding="4" style={style}>
+			{supportedSymbols?.map((symbol, key) => (
+				<Flex key={key}>
+					<Checkbox
+						name={symbol}
+						onChange={() => toggleSymbol(symbol)}
+						isChecked={isChecked(symbol)}
+					>
+						{symbol}
+					</Checkbox>
+					<Spacer />
+					<Image
+						width="20px"
+						height="20px"
+						src={getSvgIcon(symbol)}
+						alt={`icon for ${symbol}`}
+					/>
+				</Flex>
+			))}
+		</Stack>
+	);
 };
