@@ -45,6 +45,8 @@ export const PlotArea = ({
 			domainPadding={{ y: [20, 20] }}
 			scale={{ x: "time", y: "linear" }}
 			width={550}
+			height={280}
+			padding={{ left: 80, right: 50, top: 20, bottom: 80 }}
 		>
 			<VictoryAxis
 				label="Hours"
@@ -66,12 +68,14 @@ export const PlotArea = ({
 						x="time"
 						y="close"
 						labels={({ datum }) =>
-							`open: ${datum.open}\nhigh: ${datum.high}\nlow: ${datum.low}\nclose: ${datum.close}`
+							`open : ${datum.open}\nhigh : ${datum.high}\nlow : ${datum.low}\nclose : ${datum.close}`
 						}
 						labelComponent={
 							<VictoryTooltip
 								cornerRadius={2}
-								labelComponent={<StatTooltip data={series} />}
+								style={{
+									fontSize: "10px",
+								}}
 							/>
 						}
 					/>
@@ -85,11 +89,12 @@ export const PlotArea = ({
 						candleRatio={0.4}
 						candleColors={{ positive: "#5f995b", negative: "#c43a31" }}
 						labels={({ datum }) =>
-							`open: ${datum.open}\nhigh: ${datum.high}\nlow: ${datum.low}\nclose: ${datum.close}`
+							`open : ${datum.open}\nhigh : ${datum.high}\nlow : ${datum.low}\nclose : ${datum.close}`
 						}
 						// labelComponent={<StatTooltip data={series} />}
 						labelComponent={
 							<VictoryTooltip
+								cornerRadius={2}
 								style={{
 									fontSize: "10px",
 								}}

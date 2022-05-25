@@ -28,7 +28,7 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Header setPlot={setPlotType} setTsym={setTsym} />
-			<Flex style={{ position: "fixed", height: "100%" }}>
+			<Flex style={{ position: "relative", height: "100%" }}>
 				<SymbolSelector
 					symbolList={fsym}
 					setSymbolList={setFsym}
