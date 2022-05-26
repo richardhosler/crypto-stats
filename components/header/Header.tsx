@@ -25,19 +25,6 @@ export const Header = ({ setPlot, setTsym, tsym }: HeaderInterface) => {
 				break;
 		}
 	};
-	const handleChangeTsym = (event: React.FormEvent<HTMLSelectElement>) => {
-		switch (event.currentTarget.selectedIndex) {
-			case 1:
-				setTsym("EUR");
-				break;
-			case 2:
-				setTsym("GBP");
-				break;
-			default:
-				setTsym("USD");
-				break;
-		}
-	};
 
 	return (
 		<Flex backgroundColor="orange" p={2}>
