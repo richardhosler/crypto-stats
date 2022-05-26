@@ -1,5 +1,5 @@
 import { ChevronDownIcon } from "@chakra-ui/icons";
-import { Box, Flex, Image, Spacer, Stack, Text } from "@chakra-ui/react";
+import { Flex, Image, Spacer, Stack, Text } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 
 interface CurrencySelectInterface {
