@@ -3,19 +3,15 @@ import { CSSProperties } from "react";
 import { getSvgIcon } from "../../utils/getSymbolIcon";
 
 interface SymbolSelectorInterface {
-	setSymbol?: (symbol: string) => void;
 	setSymbolList?: (symbols: string[]) => void;
 	supportedSymbols: string[];
-	symbol?: string;
 	symbolList?: string[];
 	style?: CSSProperties;
 }
 
 export const SymbolSelector = ({
-	setSymbol,
 	setSymbolList,
 	supportedSymbols,
-	symbol,
 	symbolList,
 	style,
 }: SymbolSelectorInterface) => {
@@ -31,16 +27,11 @@ export const SymbolSelector = ({
 				//TODO: show error toast
 			}
 			setSymbolList([...symbolList]);
-		} else {
-			setSymbol(symbol);
 		}
 	};
 
 	const isChecked = (sym: string): boolean => {
-		if (symbolList) {
-			return symbolList.includes(symbol);
-		}
-		return symbol === sym;
+		return symbolList?.includes(sym);
 	};
 
 	return (

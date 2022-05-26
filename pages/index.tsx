@@ -28,19 +28,18 @@ export default function Home() {
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			<Header setPlot={setPlotType} setTsym={setTsym} />
-			<Flex style={{ position: "relative", height: "100%" }}>
+			<Flex style={{ height: "100%" }}>
 				<SymbolSelector
 					symbolList={fsym}
 					setSymbolList={setFsym}
 					supportedSymbols={SUPPORTED_SYMBOLS}
 					style={{
 						height: "100%",
-						position: "fixed",
+						position: "relative",
 						width: "150px",
 					}}
 				/>
-				<Spacer />
-				<Box float="right" height="full" width="full">
+				<Box style={{ width: "90%" }}>
 					<PlotArea data={hourlyData} colours={coinColours} type={plotType} />
 				</Box>
 			</Flex>

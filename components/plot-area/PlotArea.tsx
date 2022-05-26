@@ -44,9 +44,8 @@ export const PlotArea = ({
 			containerComponent={<VictoryVoronoiContainer voronoiPadding={1} />}
 			domainPadding={{ y: [20, 20] }}
 			scale={{ x: "time", y: "linear" }}
-			width={550}
-			height={280}
-			padding={{ left: 80, right: 50, top: 20, bottom: 80 }}
+			width={900}
+			height={400}
 		>
 			<VictoryAxis
 				label="Hours"
