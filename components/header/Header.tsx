@@ -1,13 +1,15 @@
-import { Flex, Text, Box, Select, Spacer } from "@chakra-ui/react";
+import { Flex, Text, Box, Select, Spacer, Icon } from "@chakra-ui/react";
 
 import { PlotType } from "../plot-area/PlotArea";
+import { CurrencySelect } from "../currency-select/CurrencySelect";
 
 interface HeaderInterface {
 	setPlot: (plot: PlotType) => void;
 	setTsym: (tsym: string) => void;
+	tsym: string;
 }
 
-export const Header = ({ setPlot, setTsym }: HeaderInterface) => {
+export const Header = ({ setPlot, setTsym, tsym }: HeaderInterface) => {
 	const handleChangePlot = (event: React.FormEvent<HTMLSelectElement>) => {
 		switch (event.currentTarget.selectedIndex) {
 			case 1:
@@ -45,17 +47,14 @@ export const Header = ({ setPlot, setTsym }: HeaderInterface) => {
 				</Text>
 			</Box>
 			<Spacer />
-			<Flex>
+			<Flex padding="2">
 				<Select onChange={handleChangePlot}>
 					<option value={0}>line</option>
 					<option value={1}>bar</option>
 					<option value={2}>candle</option>
 				</Select>
-				<Select onChange={handleChangeTsym}>
-					<option value="USD">USD</option>
-					<option value="EUR">EUR</option>
-					<option value="GBP">GBP</option>
-				</Select>
+				<Spacer />
+				<CurrencySelect setTsym={setTsym} tsym={tsym} />
 			</Flex>
 		</Flex>
 	);
