@@ -16,9 +16,8 @@ export const CurrencySelect = ({ setTsym, tsym }: CurrencySelectInterface) => {
 		e.currentTarget.style.backgroundColor = "transparent";
 	};
 	useEffect(() => {
-		document.getElementById("dropdown").style.visibility = dropVisibility
-			? "visible"
-			: "hidden";
+		document.getElementById("currency-dropdown").style.visibility =
+			dropVisibility ? "visible" : "hidden";
 	}, [dropVisibility]);
 	return (
 		<Stack>
@@ -49,11 +48,11 @@ export const CurrencySelect = ({ setTsym, tsym }: CurrencySelectInterface) => {
 				<ChevronDownIcon position="relative" top="6px" />
 			</Flex>
 			<Stack
-				id="dropdown"
+				id="currency-dropdown"
 				style={{
 					position: "absolute",
-					top: "50px",
-					right: "15px",
+					top: "45px",
+					right: "8px",
 					width: "100px",
 					backgroundColor: "white",
 					borderRadius: "5px",

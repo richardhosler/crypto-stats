@@ -15,9 +15,8 @@ export const PlotSelect = ({ setPlot }: PlotSelectInterface) => {
 		e.currentTarget.style.backgroundColor = "transparent";
 	};
 	useEffect(() => {
-		document.getElementById("dropdown").style.visibility = dropVisibilityPlot
-			? "visible"
-			: "hidden";
+		document.getElementById("plot-dropdown").style.visibility =
+			dropVisibilityPlot ? "visible" : "hidden";
 	}, [dropVisibilityPlot]);
 	return (
 		<Stack marginRight="2">
@@ -39,10 +38,10 @@ export const PlotSelect = ({ setPlot }: PlotSelectInterface) => {
 				<ChevronDownIcon position="relative" top="6px" />
 			</Flex>
 			<Stack
-				id="dropdown"
+				id="plot-dropdown"
 				style={{
 					position: "absolute",
-					top: "50px",
+					top: "45px",
 					right: "115px",
 					width: "100px",
 					backgroundColor: "white",
