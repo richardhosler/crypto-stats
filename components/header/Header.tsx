@@ -1,32 +1,40 @@
 import { Flex, Text, Box, Select, Spacer, Icon } from "@chakra-ui/react";
 
 import { PlotType } from "../plot-area/PlotArea";
-import { CurrencySelect } from "../currency-select/CurrencySelect";
-import { PlotSelect } from "../plot-select/PlotSelect";
+import { DropdownSelector } from "../dropdown-selector/DropdownSelector";
 
 interface HeaderInterface {
 	setPlot: (plot: PlotType) => void;
 	setTsym: (tsym: string) => void;
-	tsym: string;
 }
 
-export const Header = ({ setPlot, setTsym, tsym }: HeaderInterface) => {
-	const handleChangePlot = (event: React.FormEvent<HTMLSelectElement>) => {
-		switch (event.currentTarget.selectedIndex) {
-			case 1:
-				setPlot(PlotType.Bar);
-				break;
+export const Header = ({ setPlot, setTsym }: HeaderInterface) => {
+	const plotDropdownOptions = [
+		{ text: "Line" },
+		{ text: "Bar" },
+		{ text: "Candle" },
+	];
+	const currencyDropdownOptions = [
+		{ text: "USD", icon: "/icons/usd.svg" },
+		{ text: "EUR", icon: "/icons/eur.svg" },
+		{ text: "GBP", icon: "/icons/gbp.svg" },
+	];
 
-			case 2:
-				setPlot(PlotType.Candle);
-				break;
-
-			default:
-				setPlot(PlotType.Line);
-				break;
-		}
+	const handleTsymChange = (option: number) => {
+		const tsyms = ["USD", "EUR", "GBP"];
+		setTsym(tsyms[option]);
+		// switch (option) {
+		// 	case 1:
+		// 		setTsym("EUR");
+		// 		break;
+		// 	case 2:
+		// 		setTsym("GBP");
+		// 		break;
+		// 	default:
+		// 		setTsym("USD");
+		// 		break;
+		// }
 	};
-
 	return (
 		<Flex backgroundColor="orange">
 			<Text fontSize="3xl" color="white" margin="6px">
@@ -35,9 +43,12 @@ export const Header = ({ setPlot, setTsym, tsym }: HeaderInterface) => {
 
 			<Spacer />
 			<Flex padding="2">
-				<PlotSelect setPlot={setPlot} />
-				<Spacer />
-				<CurrencySelect setTsym={setTsym} tsym={tsym} />
+				<DropdownSelector callback={setPlot} options={plotDropdownOptions} />
+				<Spacer padding={2} />
+				<DropdownSelector
+					callback={handleTsymChange}
+					options={currencyDropdownOptions}
+				/>
 			</Flex>
 		</Flex>
 	);
