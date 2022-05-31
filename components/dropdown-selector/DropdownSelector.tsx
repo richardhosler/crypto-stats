@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { Flex, Image, Spacer, Stack, Text } from "@chakra-ui/react";
 
 interface DropdownSelectorInterface {
-	callback: (option: number) => void;
+	onChange: (option: number) => void;
 	options: DropdownOptionInterface[];
 }
 interface DropdownOptionInterface {
@@ -11,7 +11,7 @@ interface DropdownOptionInterface {
 	icon?: string;
 }
 export const DropdownSelector = ({
-	callback,
+	onChange: callback,
 	options,
 }: DropdownSelectorInterface) => {
 	const [dropVisibility, setDropVisibility] = useState(false);

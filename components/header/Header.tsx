@@ -6,9 +6,10 @@ import { DropdownSelector } from "../dropdown-selector/DropdownSelector";
 interface HeaderInterface {
 	setPlot: (plot: PlotType) => void;
 	setTsym: (tsym: string) => void;
+	setHours: (hours: number) => void;
 }
 
-export const Header = ({ setPlot, setTsym }: HeaderInterface) => {
+export const Header = ({ setPlot, setTsym, setHours }: HeaderInterface) => {
 	const plotDropdownOptions = [
 		{ text: "Line" },
 		{ text: "Bar" },
@@ -18,6 +19,12 @@ export const Header = ({ setPlot, setTsym }: HeaderInterface) => {
 		{ text: "USD", icon: "/icons/usd.svg" },
 		{ text: "EUR", icon: "/icons/eur.svg" },
 		{ text: "GBP", icon: "/icons/gbp.svg" },
+	];
+	const hoursDropdownOptions = [
+		{ text: "12 hours", value: 12 },
+		{ text: "24 hours", value: 24 },
+		{ text: "48 hours", value: 48 },
+		{ text: "72 hours", value: 72 },
 	];
 
 	const handleTsymChange = (option: number) => {
@@ -43,10 +50,12 @@ export const Header = ({ setPlot, setTsym }: HeaderInterface) => {
 
 			<Spacer />
 			<Flex padding="2">
-				<DropdownSelector callback={setPlot} options={plotDropdownOptions} />
+				<DropdownSelector options={hoursDropdownOptions} onChange={setHours} />
+				<Spacer padding={2} />
+				<DropdownSelector onChange={setPlot} options={plotDropdownOptions} />
 				<Spacer padding={2} />
 				<DropdownSelector
-					callback={handleTsymChange}
+					onChange={handleTsymChange}
 					options={currencyDropdownOptions}
 				/>
 			</Flex>

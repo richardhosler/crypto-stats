@@ -12,6 +12,7 @@ import { useHourlyQuery } from "../hooks/useHourlyQuery";
 export default function Home() {
 	const [fsym, setFsym] = useState(["BTC"]);
 	const [tsym, setTsym] = useState("USD");
+	const [hours, setHours] = useState(24);
 	const hourlyData = useHourlyQuery(fsym, tsym);
 	const [coinColours, setCoinColours] = useState(["#F7931A"]);
 	const [plotType, setPlotType] = useState(PlotType.Line);
@@ -27,7 +28,7 @@ export default function Home() {
 				<meta name="description" content="Cryptocurrency stats page" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<Header setPlot={setPlotType} setTsym={setTsym} />
+			<Header setPlot={setPlotType} setTsym={setTsym} setHours={setHours} />
 			<Flex style={{ height: "100%" }}>
 				<SymbolSelector
 					symbolList={fsym}
