@@ -37,9 +37,10 @@ export default function Home() {
 						height: "100%",
 						position: "absolute",
 						width: "150px",
-						margin: "5px",
-						right: "0",
+						margin: "10px",
+						right: "0px",
 						boxShadow: "5px 5px 10px rgba(0, 0, 0, 0.5)",
+						borderRadius: "5px",
 					}}
 				/>
 				<Box style={{ width: "90%" }}>
