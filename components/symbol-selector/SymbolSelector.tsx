@@ -1,11 +1,12 @@
 import { Checkbox, Flex, Image, Spacer, Stack, Text } from "@chakra-ui/react";
-import { CSSProperties } from "react";
+import { CSSProperties, useState } from "react";
 import { getSvgIcon } from "../../utils/getSymbolIcon";
+import { Toggle } from "../toggle/Toggle";
 
 interface SymbolSelectorInterface {
 	setSymbolList?: (symbols: string[]) => void;
 	supportedSymbols: string[];
-	symbolList?: string[];
+	symbolList: string[];
 	style?: CSSProperties;
 }
 
@@ -15,8 +16,10 @@ export const SymbolSelector = ({
 	symbolList,
 	style,
 }: SymbolSelectorInterface) => {
+	const [multiSelect, setMultiSelect] = useState(false);
+
 	const toggleSymbol = (symbol: string): void => {
-		if (symbolList) {
+		if (multiSelect) {
 			if (symbolList.includes(symbol)) {
 				symbolList = symbolList.filter(
 					(filterSymbol) => filterSymbol !== symbol
@@ -27,6 +30,8 @@ export const SymbolSelector = ({
 				//TODO: show error toast
 			}
 			setSymbolList([...symbolList]);
+		} else {
+			setSymbolList([symbol]);
 		}
 	};
 
@@ -37,8 +42,9 @@ export const SymbolSelector = ({
 	return (
 		<Stack overflow="auto" padding="4" style={style}>
 			<Flex>
-				<Text>Multi?</Text>
+				<Text>{multiSelect ? `(${symbolList.length}/5)` : "multiselect"}</Text>
 				<Spacer />
+				<Toggle onChange={setMultiSelect}></Toggle>
 			</Flex>
 			{supportedSymbols?.map((symbol, key) => (
 				<Flex key={key}>
