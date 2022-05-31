@@ -36,7 +36,7 @@ export const Header = ({ setPlot, setTsym }: HeaderInterface) => {
 		// }
 	};
 	return (
-		<Flex backgroundColor="orange">
+		<Flex backgroundColor="orange" zIndex={5}>
 			<Text fontSize="3xl" color="white" margin="6px">
 				Crypto Stats
 			</Text>

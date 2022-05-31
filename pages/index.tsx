@@ -27,7 +27,7 @@ export default function Home() {
 				<meta name="description" content="Cryptocurrency stats page" />
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
-			<Header setPlot={setPlotType} setTsym={setTsym} tsym={tsym} />
+			<Header setPlot={setPlotType} setTsym={setTsym} />
 			<Flex style={{ height: "100%" }}>
 				<SymbolSelector
 					symbolList={fsym}
@@ -35,9 +35,10 @@ export default function Home() {
 					supportedSymbols={SUPPORTED_SYMBOLS}
 					style={{
 						height: "100%",
-						position: "relative",
+						position: "absolute",
 						width: "150px",
 						margin: "5px",
+						right: "0",
 						boxShadow: "5px 5px 10px rgba(0, 0, 0, 0.5)",
 					}}
 				/>

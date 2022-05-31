@@ -1,4 +1,4 @@
-import { Checkbox, Flex, Image, Spacer, Stack } from "@chakra-ui/react";
+import { Checkbox, Flex, Image, Spacer, Stack, Text } from "@chakra-ui/react";
 import { CSSProperties } from "react";
 import { getSvgIcon } from "../../utils/getSymbolIcon";
 
@@ -36,6 +36,10 @@ export const SymbolSelector = ({
 
 	return (
 		<Stack overflow="auto" padding="4" style={style}>
+			<Flex>
+				<Text>Multi?</Text>
+				<Spacer />
+			</Flex>
 			{supportedSymbols?.map((symbol, key) => (
 				<Flex key={key}>
 					<Checkbox
